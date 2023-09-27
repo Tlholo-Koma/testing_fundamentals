@@ -1,37 +1,57 @@
-const sample = [
-  {
-    question: "1+1?",
-    correctAnswer: 2,
-    incorrectAnswers: [10, 1, 3],
-  },
-  {
-    question: "2+2?",
-    correctAnswer: 4,
-    incorrectAnswers: [55, 11, 3],
-  },
-  {
-    question: "1fb1?",
-    correctAnswer: 2,
-    incorrectAnswers: [10, 1, 3],
-  },
-];
+let questions=[];
+let score =0;
 
-let data;
-
-const button = document.getElementById("submit");
+const navigationSection = document.getElementById("navigation-section");
 const questionLabel = document.getElementById("question");
+const scoreLabel = document.getElementById("score");
 const answersSection = document.getElementById("answers-section");
-
-//adding scoring system and already seen questions
-
-async function generateTriviaQuestions() {
-console.log(sample)
-  answersSection.textContent=""
+const timer = document.getElementById("timer");
+const tryAgainButton = document.getElementById("try-again");
+//to add timer
+async function getTriviaQuestions() {
+  score=0;
+  timer.textContent = `${score}/10`;
+  answersSection.style.display = "grid";
+  scoreLabel.textContent = "";
+  navigationSection.style.display = "none";
   try {
-    data = sample[Math.floor(Math.random() * 3)];
+    const response = await fetch(
+      "https://opentdb.com/api.php?amount=10&category=19&difficulty=medium&type=multiple",
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    questions = data.results;
+    await nextTriviaQuestion();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function nextTriviaQuestion() {
+  console.log(questions);
+
+  if (questions.length == 0) {
+    answersSection.style.display = "none";
+    questionLabel.textContent = "";
+    scoreLabel.textContent = `You scored ${score}/10`;
+    navigationSection.style.display = "block";
+    return;
+  }
+
+  answersSection.textContent = "";
+
+  try {
+    const randomIndex = Math.floor(Math.random() * questions.length);
+    const data = questions[randomIndex];
 
     questionLabel.textContent = data.question;
-    let allAnswers = [...data.incorrectAnswers, data.correctAnswer];
+
+    let allAnswers = [...data.incorrect_answers, data.correct_answer];
     allAnswers = shuffleAnswers(allAnswers);
 
     for (var i = 0; i <= 3; i++) {
@@ -40,14 +60,22 @@ console.log(sample)
       answerButton.textContent = allAnswers[i];
     
       answerButton.addEventListener("click", () => {
-        if (answerButton.textContent == data.correctAnswer) {
+        if (answerButton.textContent == data.correct_answer) {
           answerButton.style.background = "green";
-
+          score += 1;
         } else {
           answerButton.style.background = "red";
         }
+
+        const ind = questions.indexOf(data);
+        if (ind !== -1) {
+          questions.splice(ind, 1);
+        }
+
+        timer.textContent = `${score}/10`;
+
         setTimeout(async () => {
-          await generateTriviaQuestions();
+          await nextTriviaQuestion();
         }, 1000);
       });
 
@@ -59,13 +87,18 @@ console.log(sample)
 }
 
 function shuffleAnswers(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
-  
+  return array;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-  await generateTriviaQuestions();
+  await getTriviaQuestions();
+ 
 });
+
+tryAgainButton.addEventListener("click",async ()=>{
+  await getTriviaQuestions();
+})
