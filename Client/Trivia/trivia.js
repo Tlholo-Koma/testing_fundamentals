@@ -22,6 +22,8 @@ const button = document.getElementById("submit");
 const questionLabel = document.getElementById("question");
 const answersSection = document.getElementById("answers-section");
 
+//adding scoring system and already seen questions
+
 async function generateTriviaQuestions() {
 console.log(sample)
   answersSection.textContent=""
