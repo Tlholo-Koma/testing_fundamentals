@@ -42,7 +42,6 @@ public class Calculator {
                 throw new Exception("Invalid expression");
             return operands.pop();  
         } catch (Exception e) {
-            // TODO: handle exception
             // invalid expression
             throw new Exception("Invalid expression");
         }
@@ -80,7 +79,6 @@ public class Calculator {
                 postfix += operators.pop();
             return postfix;
         } catch (Exception e) {
-            // TODO: handle exception
             // invalid expression
             throw new Exception("Invalid expression");
         }
