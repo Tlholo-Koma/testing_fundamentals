@@ -1,4 +1,4 @@
-package controller;
+package com.testing.calculator_quiz.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
