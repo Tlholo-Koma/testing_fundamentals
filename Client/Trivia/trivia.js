@@ -26,12 +26,22 @@ const answersSection = document.getElementById("answers-section");
 
 async function generateTriviaQuestions() {
 console.log(sample)
+
   answersSection.textContent=""
   try {
-    data = sample[Math.floor(Math.random() * 3)];
+    const response = await fetch("https://opentdb.com/api.php?amount=10&category=19&difficulty=medium&type=multiple", {
+      headers: {
+        "Accept": "application/json",
+      },
+    });
+
+    data = await response.json();
+    console.log(data.results)
+    data = data.results[Math.floor(Math.random() * data.results.length)];
 
     questionLabel.textContent = data.question;
-    let allAnswers = [...data.incorrectAnswers, data.correctAnswer];
+
+    let allAnswers = [...data.incorrect_answers, data.correct_answer];
     allAnswers = shuffleAnswers(allAnswers);
 
     for (var i = 0; i <= 3; i++) {
@@ -40,7 +50,7 @@ console.log(sample)
       answerButton.textContent = allAnswers[i];
     
       answerButton.addEventListener("click", () => {
-        if (answerButton.textContent == data.correctAnswer) {
+        if (answerButton.textContent == data.correct_answer) {
           answerButton.style.background = "green";
 
         } else {
