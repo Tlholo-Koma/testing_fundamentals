@@ -1,6 +1,6 @@
-package service;
+package com.testing.calculator_quiz.service;
 
-public class Addition extends Operator {
+public class Subtration extends Operator {
 
     @Override
     public Double execute(Double value1, Double value2) {

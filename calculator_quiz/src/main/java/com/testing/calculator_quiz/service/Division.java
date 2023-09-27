@@ -1,4 +1,4 @@
-package service;
+package com.testing.calculator_quiz.service;
 
 public class Division extends Operator {
 

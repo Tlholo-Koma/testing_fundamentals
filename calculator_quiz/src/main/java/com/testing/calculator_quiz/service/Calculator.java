@@ -1,4 +1,4 @@
-package service;
+package com.testing.calculator_quiz.service;
 
 import java.util.HashMap;
 import java.util.Map;
