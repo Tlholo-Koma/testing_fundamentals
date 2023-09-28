@@ -4,7 +4,7 @@
   }
   
 body {
-    background-color: #6499e9;
+    background-color: #4685e4;
     font-family: "Inter", monospace;
     color: white;
 }
@@ -57,7 +57,7 @@ aside {
     right: 10px; 
     z-index: 999; 
     background-color: #fff;
-    color: #6499e9;
+    color: #4685e4;
     /* background-color: #007bff;
     color: #fff; */
     border: none;
@@ -75,4 +75,9 @@ aside {
     /* #3d7bd9 0056b3 */
     background-color: #3d7bd9; /* Change background color on hover */
     color: #fff;
+}
+
+img {
+    width: auto; /* or max-width: 100%; */
+    height: auto;
 }
