@@ -1,6 +1,5 @@
 package com.testing.calculator_quiz.repository;
 
-import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

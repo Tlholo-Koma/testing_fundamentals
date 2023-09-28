@@ -1,8 +1,6 @@
 package com.testing.calculator_quiz.controller;
 
-import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.entity.User;
-import com.testing.calculator_quiz.service.ScoreService;
 import com.testing.calculator_quiz.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
