@@ -77,9 +77,10 @@ async function getTriviaQuestions() {
   answersSection.style.display = "grid";
   scoreLabel.textContent = "";
   navigationSection.style.display = "none";
+  const difficulty = ["medium","hard"]
   try {
     const response = await fetch(
-      "https://opentdb.com/api.php?amount=10&category=19&difficulty=medium&type=multiple",
+      `https://opentdb.com/api.php?amount=10&category=19&difficulty=${difficulty[Math.floor(Math.random() * difficulty.length)]}&type=multiple`,
       {
         headers: {
           Accept: "application/json",
