@@ -5,6 +5,7 @@ document.getElementById('calculator-form').addEventListener('click', function(ev
     const buttonValue = event.target.value;
 
     if (buttonValue === '=') {
+        
         try {
             const result = eval(expression); // replace with api call :)
             display.textContent = result;
