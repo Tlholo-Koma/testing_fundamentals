@@ -1,5 +1,6 @@
 let expression = '';
 let display = document.getElementById('calculator-display');
+let isFinal = false;
 
 document.getElementById('calculator-form').addEventListener('click', async function(event) {
     const buttonValue = event.target.value;
@@ -12,8 +13,10 @@ document.getElementById('calculator-form').addEventListener('click', async funct
             });
             const response = await (await apiPost('/calculator/calculate', data)).json();
             const result = response['result']; // replace with api call :)
+            console.log(response);
             display.textContent = result;
             expression = result.toString();
+            isFinal=true;
         } catch (error) {
             console.log(error);
             display.textContent = 'Error';
@@ -22,12 +25,19 @@ document.getElementById('calculator-form').addEventListener('click', async funct
     } else if (buttonValue === 'C') {
         expression = '';
         display.textContent = '0';
+        isFinal = false;
     } else {
-        expression += buttonValue;
-        display.textContent = expression;
+        if(isFinal){
+            expression = buttonValue;
+            display.textContent = buttonValue;
+            isFinal=false;
+        }
+        else{
+            expression += buttonValue;
+            display.textContent = expression;
+        }
     }
 });
-
 
 async function makeRequest() {
     return await (await apiPost('/calculator/calculate')).json();

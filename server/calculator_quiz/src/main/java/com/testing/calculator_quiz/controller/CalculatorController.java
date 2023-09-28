@@ -21,6 +21,7 @@ import org.springframework.http.HttpStatus;
 public class CalculatorController {
   // Declare services used like:
   private final Calculator calculator = new Calculator();
+
   @PostMapping("/calculate")
   public ResponseEntity<Object> resultOfCalculation(@RequestBody Map<String, String> object) throws Exception {
     // maybe:
@@ -30,6 +31,6 @@ public class CalculatorController {
     Double result = calculator.calculate(object.get("expression"));
     responseBody.put("result", result.toString());
     return new ResponseEntity<Object>(responseBody,
-                                      HttpStatus.OK);
+        HttpStatus.OK);
   }
 }
