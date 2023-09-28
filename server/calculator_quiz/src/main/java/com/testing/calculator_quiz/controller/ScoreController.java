@@ -2,9 +2,11 @@ package com.testing.calculator_quiz.controller;
 
 import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.service.ScoreService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/score")
@@ -21,7 +23,8 @@ public class ScoreController {
     }
 
     @PostMapping("/set/{userId}")
-    public void setScoreByUserId(@PathVariable Integer userId, @RequestBody Integer score) {
-        scoreService.setScoreByUserId(userId, score);
+    public void setScoreByUserId(@PathVariable Integer userId, @RequestBody Map<String, Integer> requestBody) {
+        Integer score = requestBody.get("score");
+         scoreService.setScoreByUserId(userId, score);
     }
 }

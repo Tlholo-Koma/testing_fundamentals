@@ -11,7 +11,7 @@ import java.util.Date;
 @Getter
 public class Score {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private int userId;
     private int score;
