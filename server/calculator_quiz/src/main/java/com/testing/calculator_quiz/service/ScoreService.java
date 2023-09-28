@@ -4,6 +4,8 @@ import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.repository.ScoreRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ScoreService {
 
@@ -13,7 +15,22 @@ public class ScoreService {
         this.scoreRepository = scoreRepository;
     }
 
-    public Score getScoreByUserId(int userId) {
-        return scoreRepository.getScore(userId);
+    public List<Score> getScoreByUserId(int userId) {
+        List<Score> scores = scoreRepository.getScore(userId);
+
+        if (scores.isEmpty()) {
+            throw new RuntimeException("No scores found for user with ID: " + userId);
+        }
+
+        return scores;
     }
+
+    public void setScoreByUserId(int userId, int score) {
+        try {
+//        scoreRepository.setScore(userId, score);
+        } catch (Exception e) {
+            throw new RuntimeException("Error setting score for user with ID: " + userId, e);
+        }
+    }
+
 }
