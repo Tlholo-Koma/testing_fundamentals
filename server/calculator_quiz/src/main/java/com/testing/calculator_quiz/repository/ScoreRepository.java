@@ -6,9 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface ScoreRepository extends CrudRepository<Score, Integer> {
     @Query("SELECT t FROM SCORE t WHERE t.userId = :userId")
-    Score getScore(int userId);
+    List<Score> getScore(int userId);
 
 
 //    @Modifying

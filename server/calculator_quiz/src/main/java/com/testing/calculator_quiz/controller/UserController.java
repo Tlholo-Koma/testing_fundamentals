@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/set/{userId}")
-    public void setUserByUserId(@PathVariable Integer userId, @RequestBody Integer score) {
-        userService.setUserByUserId(userId, score);
+    public void setUserByUserId(@PathVariable Integer userId, @RequestBody String email) {
+        userService.setUserByUserId(userId, email);
     }
 }

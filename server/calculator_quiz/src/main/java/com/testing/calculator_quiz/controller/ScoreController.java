@@ -4,6 +4,8 @@ import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.service.ScoreService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/score")
 public class ScoreController {
@@ -14,7 +16,7 @@ public class ScoreController {
     }
 
     @GetMapping("/{userId}")
-    public Score getScoreByUserId(@PathVariable Integer userId) {
+    public List<Score> getScoreByUserId(@PathVariable Integer userId) {
         return scoreService.getScoreByUserId(userId);
     }
 

@@ -21,8 +21,8 @@ public class UserService {
         return userRepository.getUser(userId);
     }
 
-    public void setUserByUserId(int userId, int score) {
-//        userRepository.setUser(userId, score);
+    public void setUserByUserId(int userId, String email) {
+//        userRepository.setUser(userId, email);
     }
 
 }
