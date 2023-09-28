@@ -35,7 +35,7 @@ public class Calculator {
                 if (exp == '$') {
                     operands.push(Double.valueOf(operand));
                     operand = "";
-                } else if (exp >= '0' && exp <= '9') {
+                } else if ((exp >= '0' && exp <= '9') || exp == '.') {
                     operand += exp;
                 } else {
                     value1 = operands.pop();
@@ -61,7 +61,7 @@ public class Calculator {
                 if (i != 0 && operatorMap.containsKey(exp) && !operatorMap.containsKey(postfix.charAt(postfix.length()-1)))
                     postfix += "$";
                 
-                if (exp >= '0' && exp <= '9') {
+                if ((exp >= '0' && exp <= '9') || exp == '.') {
                     postfix += exp;
                 } else if (exp == '(') {
                     operators.push(exp);
