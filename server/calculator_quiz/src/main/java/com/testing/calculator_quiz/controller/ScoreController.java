@@ -2,6 +2,8 @@ package com.testing.calculator_quiz.controller;
 
 import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.service.ScoreService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/score")
+@CrossOrigin(origins = "*")
 public class ScoreController {
     private final ScoreService scoreService;
 

@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.testing.calculator_quiz.service.Calculator;
 
-import lombok.RequiredArgsConstructor;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +16,7 @@ import org.springframework.http.HttpStatus;
 
 @RestController
 // @RequiredArgsConstructor //Used for services
-@CrossOrigin(origins = "http://localhost:4040")
+@CrossOrigin(origins = "*")
 @RequestMapping("/calculator")
 public class CalculatorController {
   // Declare services used like:
