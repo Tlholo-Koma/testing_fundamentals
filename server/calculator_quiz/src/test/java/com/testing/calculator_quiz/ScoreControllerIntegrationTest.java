@@ -33,21 +33,21 @@ public class ScoreControllerIntegrationTest {
     }
 
     @Test
-    public void testGetUserScore() throws JsonProcessingException, Exception {
+    public void shouldReturnUserScoresForValidUserId() throws JsonProcessingException, Exception {
 
         mvc.perform(get("/user/6/score"))
             .andExpect(status().isOk())
             .andReturn();
     }
     @Test
-    public void testPostUserScore() throws JsonProcessingException, Exception {
+    public void shouldAddScoreForUserWithValidUserId() throws JsonProcessingException, Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode requestBody = objectMapper.createObjectNode();
-        requestBody.put("email", "example@email.com");
+        requestBody.put("score", 2);
 
 
-        mvc.perform(post("/user")
+        mvc.perform(post("/user/6/score")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestBody.toString()))
                 .andExpect(status().isOk())
