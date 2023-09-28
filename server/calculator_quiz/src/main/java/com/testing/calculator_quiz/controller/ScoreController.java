@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/score")
 public class ScoreController {
     private final ScoreService scoreService;
 
@@ -17,14 +16,15 @@ public class ScoreController {
         this.scoreService = scoreService;
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}/score")
     public List<Score> getScoreByUserId(@PathVariable Integer userId) {
         return scoreService.getScoreByUserId(userId);
     }
 
-    @PostMapping("/set/{userId}")
-    public void setScoreByUserId(@PathVariable Integer userId, @RequestBody Map<String, Integer> requestBody) {
+    @PostMapping("/user/{userId}/score")
+    public ResponseEntity<String> setScoreByUserId(@PathVariable Integer userId, @RequestBody Map<String, Integer> requestBody) {
         Integer score = requestBody.get("score");
          scoreService.setScoreByUserId(userId, score);
+        return ResponseEntity.ok("Score added successfully!");
     }
 }
