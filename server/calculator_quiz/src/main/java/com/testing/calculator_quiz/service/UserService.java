@@ -28,9 +28,9 @@ public class UserService {
     }
 
     @Transactional
-    public void createUser(String email) throws RuntimeException {
+    public void createUser(CreateUserRequest request) throws RuntimeException {
         try {
-            userRepository.insertUser(email);
+            userRepository.insertUser(request.getEmail());
         } catch (Exception e) {
             throw new RuntimeException("Error setting user for ID: " + e.getMessage());
         }

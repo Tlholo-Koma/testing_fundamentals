@@ -4,6 +4,9 @@ public class CreateUserRequest {
 
     private String email;
 
+    public CreateUserRequest() {
+    }
+
     public CreateUserRequest(String email) {
         this.email = email;
     }
