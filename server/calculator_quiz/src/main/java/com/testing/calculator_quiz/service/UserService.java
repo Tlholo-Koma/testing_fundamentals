@@ -17,12 +17,22 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getUserByUserId(int userId) {
-        return userRepository.getUser(userId);
+    public User getUserByUserId(int userId) throws RuntimeException {
+        User user = userRepository.getUser(userId);
+
+        if (user == null) {
+            throw new RuntimeException("No user found for ID: " + userId);
+        }
+
+        return user;
     }
 
-    public void setUserByUserId(int userId, String email) {
-//        userRepository.setUser(userId, email);
+    public void setUserByUserId(int userId, String email) throws RuntimeException {
+        try {
+//            userRepository.setUser(userId, email);
+        } catch (Exception e) {
+            throw new RuntimeException("Error setting user for ID: " + userId, e);
+        }
     }
 
 }
