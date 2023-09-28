@@ -1,0 +1,122 @@
+
+body {
+  background-color: #6499E9;
+  font-family: "Inter", monospace;
+  color: white;
+}
+
+.calculator-header{
+  padding: 5em 0 3em 0;
+}
+
+main{
+text-align: center;
+justify-content: center;
+
+}
+
+input{
+  height: 3em;
+  width: 19em;
+  border-radius: 5px;
+  border: none;
+
+}
+
+h1{
+  font-size: 72px;
+}
+
+label{
+  font-size: 26px;
+}
+
+.button{
+  height: 10em;
+  width: 10em;
+  border-radius: 10px;
+  border: none;
+}
+
+#submit{
+  display: block;
+  width: 6em;
+  height: 2em;
+  border-radius: 5px;
+  margin: 1em auto;
+}
+
+.question-section{
+  margin-bottom: 1em;
+}
+
+.math-block{
+  display: inline-flex;
+    background-color: #CE7777;
+     text-align: center;
+     justify-content: center;
+margin: auto;
+padding: auto;
+      width:10em;
+  height: 10em;  
+}
+
+
+@media (max-width: 700px) {
+  #answers-section{
+    display: grid;
+    
+    grid-template-columns: 1fr;
+  }
+}
+
+#calculator-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-button {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+#display {
+    grid-column: span 4;
+    text-align: right;
+    padding: 10px;
+    font-size: 24px;
+}
+
+#logout-button {
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  z-index: 999; 
+  background-color: #fff;
+  color: #6499e9;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 10rem;
+  font-family: "Inter", monospace;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#logout-button:hover {
+  background-color: #3d7bd9; 
+}
