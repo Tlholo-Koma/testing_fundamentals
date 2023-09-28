@@ -36,7 +36,7 @@ public class ScoreControllerIntegrationTest {
     @Test
     public void testCalculation() throws JsonProcessingException, Exception {
 
-        mvc.perform(get("/score/1"))
+        mvc.perform(get("/user/6/score"))
             .andExpect(status().isOk())
             .andReturn();
     }

@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #6499e9;
+  background-color: #4685e4;
   font-family: "Inter", monospace;
   color: white;
 }
@@ -127,7 +127,7 @@ label {
   right: 10px; 
   z-index: 999; 
   background-color: #fff;
-  color: #6499e9;
+  color: #4685e4;
   border: none;
   padding: 10px 20px;
   cursor: pointer;

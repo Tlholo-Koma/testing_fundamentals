@@ -2,11 +2,13 @@ package com.testing.calculator_quiz.controller;
 
 import com.testing.calculator_quiz.entity.User;
 import com.testing.calculator_quiz.service.UserService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
@@ -14,13 +16,18 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/user/{userId}")
     public User getUserByUserId(@PathVariable Integer userId) {
         return userService.getUserByUserId(userId);
     }
 
-    @PostMapping("/set/{userId}")
-    public void setUserByUserId(@PathVariable Integer userId, @RequestBody String email) {
-        userService.setUserByUserId(userId, email);
+    @PostMapping("/user")
+    public ResponseEntity<String> createUserByEmail(@RequestBody CreateUserRequest request) {
+        try {
+            userService.createUser(request);
+            return ResponseEntity.ok("User created successfully!");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating user: " + e.getMessage());
+        }
     }
 }
