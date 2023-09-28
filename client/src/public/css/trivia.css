@@ -114,6 +114,11 @@ label {
 
     grid-template-columns: 1fr;
   }
+
+  .answer-button {
+    height: 20vh;
+    width: 30vw;
+  }
 }
 
 #logout-button {
