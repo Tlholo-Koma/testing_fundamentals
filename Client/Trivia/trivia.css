@@ -100,26 +100,3 @@ label {
     grid-template-columns: 1fr;
   }
 }
-
-#logout-button {
-  position: fixed; 
-  top: 10px; 
-  right: 10px; 
-  z-index: 999; 
-  background-color: #fff;
-  color: #6499e9;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 10rem;
-  font-family: "Inter", monospace;
-  font-size: 1.5rem;
-  overflow: hidden;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-#logout-button:hover {
-  background-color: #3d7bd9; 
-}
