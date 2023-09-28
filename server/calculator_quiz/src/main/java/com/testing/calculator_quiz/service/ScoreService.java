@@ -16,4 +16,9 @@ public class ScoreService {
     public Score getScoreByUserId(int userId) {
         return scoreRepository.getScore(userId);
     }
+
+    public void setScoreByUserId(int userId, int score) {
+//        scoreRepository.setScore(userId, score);
+    }
+
 }
