@@ -1,4 +1,47 @@
-INSERT INTO SCORE (ID, USER_ID, SCORE, SCORE_DATE_TIME) VALUES (1, 4, 8, '2023-09-27 14:30:00');
-INSERT INTO SCORE (ID, USER_ID, SCORE, SCORE_DATE_TIME) VALUES (2, 5, 6, CURRENT_TIMESTAMP);
-INSERT INTO SCORE (ID, USER_ID, SCORE, SCORE_DATE_TIME) VALUES (3, 5, 2, CURRENT_TIMESTAMP);
-INSERT INTO USERS (ID, USER_ID, EMAIL) VALUES (1, 4, 'xlubbe@gmail.com');
+INSERT INTO SCORE (USER_ID, SCORE, SCORE_DATE_TIME) VALUES
+(3, 3, CURRENT_TIMESTAMP),
+(4, 3, CURRENT_TIMESTAMP),
+(5, 3, CURRENT_TIMESTAMP),
+(6, 3, CURRENT_TIMESTAMP),
+(7, 8, CURRENT_TIMESTAMP),
+(8, 5, CURRENT_TIMESTAMP),
+(9, 7, CURRENT_TIMESTAMP),
+(10, 1, CURRENT_TIMESTAMP),
+(11, 4, CURRENT_TIMESTAMP),
+(12, 9, CURRENT_TIMESTAMP),
+(13, 6, CURRENT_TIMESTAMP),
+(14, 2, CURRENT_TIMESTAMP),
+(15, 8, CURRENT_TIMESTAMP),
+(16, 5, CURRENT_TIMESTAMP),
+(17, 7, CURRENT_TIMESTAMP),
+(18, 3, CURRENT_TIMESTAMP),
+(19, 6, CURRENT_TIMESTAMP),
+(20, 1, CURRENT_TIMESTAMP),
+(21, 4, CURRENT_TIMESTAMP),
+(22, 9, CURRENT_TIMESTAMP),
+(23, 6, CURRENT_TIMESTAMP),
+(24, 8, CURRENT_TIMESTAMP),
+(25, 5, CURRENT_TIMESTAMP);
+INSERT INTO USERS (EMAIL) VALUES
+('email2@gmail.com'),
+('email2@gmail.com'),
+('email3@gmail.com'),
+('email4@gmail.com'),
+('email5@gmail.com'),
+('email6@gmail.com'),
+('email7@gmail.com'),
+('email8@gmail.com'),
+('email9@gmail.com'),
+('email10@gmail.com'),
+('email11@gmail.com'),
+('email12@gmail.com'),
+('email13@gmail.com'),
+('email14@gmail.com'),
+('email15@gmail.com'),
+('email16@gmail.com'),
+('email17@gmail.com'),
+('email18@gmail.com'),
+('email19@gmail.com'),
+('email20@gmail.com'),
+('email21@gmail.com');
+
