@@ -11,6 +11,7 @@ const scoreLabel = document.getElementById("score");
 const answersSection = document.getElementById("answers-section");
 const timer = document.getElementById("timer");
 const tryAgainButton = document.getElementById("try-again");
+const calcButton = document.getElementById("calcutor");
 
 async function countdown() {
   countdownValue -= 1;
@@ -138,4 +139,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 tryAgainButton.addEventListener("click", async () => {
   await getTriviaQuestions();
+});
+
+calcButton.addEventListener("click", async () => {
+  location.href = "/calculator";
 });

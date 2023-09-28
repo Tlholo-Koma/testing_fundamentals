@@ -57,6 +57,7 @@ label {
   width: 10em;
   border-radius: 10px;
   border: none;
+  background-color:rgb(239, 239, 239);
 }
 
 #timer {
@@ -80,6 +81,20 @@ label {
   height: 5em;
   border-radius: 5px;
   margin: 1em auto;
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  border-color: white;
+  border-width: 3px;
+  border-style: solid;
+  background-color: transparent;
+
 }
 
 #navigation-section{
@@ -118,6 +133,7 @@ label {
   overflow: hidden;
   text-align: center;
   text-transform: uppercase;
+  
 }
 
 #logout-button:hover {
