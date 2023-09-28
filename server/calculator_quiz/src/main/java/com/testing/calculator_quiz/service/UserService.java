@@ -1,9 +1,9 @@
 package com.testing.calculator_quiz.service;
 
-import com.testing.calculator_quiz.entity.Score;
+import com.testing.calculator_quiz.controller.CreateUserRequest;
 import com.testing.calculator_quiz.entity.User;
-import com.testing.calculator_quiz.repository.ScoreRepository;
 import com.testing.calculator_quiz.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 
@@ -27,11 +27,12 @@ public class UserService {
         return user;
     }
 
-    public void setUserByUserId(int userId, String email) throws RuntimeException {
+    @Transactional
+    public void createUser(CreateUserRequest request) throws RuntimeException {
         try {
-//            userRepository.setUser(userId, email);
+            userRepository.insertUser(request.getEmail());
         } catch (Exception e) {
-            throw new RuntimeException("Error setting user for ID: " + userId, e);
+            throw new RuntimeException("Error setting user for ID: " + e.getMessage());
         }
     }
 

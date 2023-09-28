@@ -8,8 +8,7 @@ import lombok.Getter;
 @Getter
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
     private String email;
 }
