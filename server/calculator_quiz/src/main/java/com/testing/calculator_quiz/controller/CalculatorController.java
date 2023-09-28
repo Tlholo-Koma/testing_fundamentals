@@ -1,6 +1,7 @@
 package com.testing.calculator_quiz.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.http.HttpStatus;
 
 @RestController
 // @RequiredArgsConstructor //Used for services
+@CrossOrigin(origins = "http://localhost:4040")
 @RequestMapping("/calculator")
 public class CalculatorController {
   // Declare services used like:
