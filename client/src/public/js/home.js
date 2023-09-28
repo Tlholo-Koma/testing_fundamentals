@@ -36,4 +36,9 @@ document.getElementById('trivia').addEventListener('click', function(event) {
     location.href = "/trivia";
 });
 
+document.getElementById('quiz_history').addEventListener('click',function(event) {
+    event.preventDefault();
+    location.href = "/quiz_history";
+})
+
 getUserInfo();

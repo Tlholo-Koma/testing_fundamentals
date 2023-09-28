@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class Calculator {
     private Stack<Double> operands;
     private Stack<Character> operators;
