@@ -7,7 +7,7 @@ function logout() {
         }
     })
         .then((data) => {
-            location.href = "http://127.0.0.1:5501/Client/Login/";
+            location.href = "/Login";
         })
 }
 

@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/Client/Login/login.css" />
-    <script src="/Client/Login/login.js" defer></script>
+    <title>Home</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
       rel="stylesheet"
@@ -15,18 +13,23 @@
       href="https://fonts.googleapis.com/css?family=Inter"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <script src="js/home.js" defer></script>
+    <script type="text/javascript" src="js/logout.js" defer></script>
 </head>
-  <body>
-      <main>
+<body>
+    <main>
         <aside class="login-header">
             <img
-              src="/Client/Login/Calculator.png"
+              src="images/Calculator.png"
               alt="Logo of a Calculator."
             />
         </aside>
         <section class="buttons">
-          <button id="loginWithGoogle">Login/ Sign Up with Google</button>
+          <button id="calculator">Calculator</button>
+          <button id="trivia">Trivia</button>
         </section>
+        <button id="logout-button">Logout</button>
       </main>
-  </body>
+</body>
 </html>

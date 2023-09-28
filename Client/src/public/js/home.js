@@ -9,7 +9,7 @@ function getUserInfo() {
         localStorage.setItem('authInfo', JSON.stringify(params));
     }
 
-    window.history.pushState({}, document.title, "/Client/Home", "Client/Home");
+    window.history.pushState({}, document.title, "/home", "home");
     let authInfo = JSON.parse(localStorage.getItem('authInfo'));
     let userEmail, userName;
 
@@ -28,12 +28,12 @@ function getUserInfo() {
 
 document.getElementById('calculator').addEventListener('click', function(event) {
     event.preventDefault();
-    location.href = "http://127.0.0.1:5501/Client/Calculator/calculator.html";
+    location.href = "/calculator";
 });
 
 document.getElementById('trivia').addEventListener('click', function(event) {
     event.preventDefault();
-    location.href = "http://127.0.0.1:5501/Client/Trivia/";
+    location.href = "/trivia";
 });
 
 getUserInfo();

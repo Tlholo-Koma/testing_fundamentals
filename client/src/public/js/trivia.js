@@ -12,7 +12,6 @@ const answersSection = document.getElementById("answers-section");
 const timer = document.getElementById("timer");
 const tryAgainButton = document.getElementById("try-again");
 
-
 async function countdown() {
   countdownValue -= 1;
   timer.style.background = `linear-gradient(white, white) content-box no-repeat, conic-gradient(rgb(0, 110, 255) ${
