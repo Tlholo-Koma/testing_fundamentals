@@ -11,7 +11,6 @@ import com.testing.calculator_quiz.service.Calculator;
 
 import lombok.RequiredArgsConstructor;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -24,14 +23,11 @@ public class CalculatorController {
   private final Calculator calculator = new Calculator();
   // private final CalculatorService calculatorService;
   @PostMapping("/calculate")
-  public ResponseEntity<Object> resultOfCalculation(@RequestBody Map<String, String> object) throws Exception {
+  public ResponseEntity<String> resultOfCalculation(@RequestBody Map<String, String> object) throws Exception {
     // maybe:
     // return new ResponseEntity<>(calculatorService.calculateThis(operation),
     // HttpStatus.OK);
-    Map<String, String> responseBody = new HashMap<>();
-    Double result = calculator.calculate(object.get("expression"));
-    responseBody.put("result", result.toString());
-    return new ResponseEntity<Object>(responseBody,
+    return new ResponseEntity<String>(calculator.calculate(object.get("expression")).toString(),
                                       HttpStatus.OK);
   }
 }

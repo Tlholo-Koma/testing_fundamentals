@@ -1,12 +1,13 @@
 package com.testing.calculator_quiz.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Entity(name = "SCORE")
+@Table(name = "SCORE")
 @Getter
 public class Score {
     @Id
@@ -14,4 +15,7 @@ public class Score {
     private Long Id;
     private int userId;
     private int score;
+    @Column(name = "SCORE_DATE_TIME")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date scoreDateTime;
 }
