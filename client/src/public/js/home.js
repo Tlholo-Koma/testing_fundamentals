@@ -1,4 +1,4 @@
-function getUserInfo() {
+async function getUserInfo() {
     let params = {};
     let regex = /([^&=]+)=([^&]*)/g, m;
     while (m = regex.exec(location.href)){
@@ -13,22 +13,25 @@ function getUserInfo() {
     let authInfo = JSON.parse(localStorage.getItem('authInfo'));
     let userEmail, userName;
 
-    fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
         headers: {
             "Authorization": `Bearer ${authInfo['access_token']}`
         }
     })
         .then(data => data.json())
         .then((info) => {
-            userEmail = info.email;
-            userName = info.name;
+            userEmail = info['email'];
+            userName = info['name'];
+            
+        }).then(() => {
+            
+            
         })
         let data = JSON.stringify({
             "email": userEmail,
             "name": userName,
         });
-        createUSer = await (apiPost('http://localhost:8080/user', data))
-
+        createUSer = await (apiPost('/user', data));
 }
 
 document.getElementById('calculator').addEventListener('click', function(event) {
