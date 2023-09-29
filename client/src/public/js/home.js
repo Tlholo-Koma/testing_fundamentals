@@ -23,6 +23,11 @@ function getUserInfo() {
             userEmail = info.email;
             userName = info.name;
         })
+        let data = JSON.stringify({
+            "email": userEmail,
+            "name": userName,
+        });
+        createUSer = await (apiPost('http://localhost:8080/user', data))
 
 }
 
