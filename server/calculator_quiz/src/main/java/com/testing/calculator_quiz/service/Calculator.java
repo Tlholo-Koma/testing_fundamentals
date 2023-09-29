@@ -37,6 +37,8 @@ public class Calculator {
                     operand = "";
                 } else if ((exp >= '0' && exp <= '9') || exp == '.') {
                     operand += exp;
+                } else if (exp == 'n') {
+                    operand += '-';
                 } else {
                     value1 = operands.pop();
                     value2 = operands.pop(); 
@@ -55,14 +57,19 @@ public class Calculator {
 
     private String toPostfix(String expression) throws Exception{
         String postfix = "";
+        boolean operatorFirst = false;
         try {
             for (int i = 0; i < expression.length(); i++) {
                 char exp = expression.charAt(i);
-                if (i != 0 && operatorMap.containsKey(exp) && !operatorMap.containsKey(postfix.charAt(postfix.length()-1)))
+                if (i != 0 && operatorMap.containsKey(exp) && !operatorMap.containsKey(postfix.charAt(postfix.length()-1))){
                     postfix += "$";
-                
+                    operatorFirst=false;
+                }
                 if ((exp >= '0' && exp <= '9') || exp == '.') {
                     postfix += exp;
+                    operatorFirst=false;
+                }  else if ((i==0 || operatorFirst) && exp == '-') {
+                    postfix+= "n";
                 } else if (exp == '(') {
                     operators.push(exp);
                 } else if (exp == ')') {
@@ -78,6 +85,7 @@ public class Calculator {
                         postfix += operators.pop();
                     }
                     operators.push(exp);
+                    operatorFirst = true;
                 }
             }
             if (!operatorMap.containsKey(expression.charAt(expression.length()-1)))
