@@ -2,11 +2,9 @@ name: Javascript with Selenium
 on:
 
   push:
-  
     branches: [ main ]
 
   pull_request:
-
       branches: [ main ]
 
 jobs:
