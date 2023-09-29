@@ -1,0 +1,31 @@
+name: Javascript with Selenium
+on:
+
+  push:
+    branches: [ main ]
+
+  pull_request:
+      branches: [ main ]
+
+jobs:
+
+  test:
+
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./client
+
+    steps:
+
+    - name: Run calculator test
+      uses: actions/checkout@v2
+
+    - name: setup stuff
+      with: 
+        node-version: "18.x"
+        working-directory: ./client
+    - name: selenium setup
+      run: npm install selenium-webdriver
+    - name : actual test
+      run: node tests/calculator-test.js
