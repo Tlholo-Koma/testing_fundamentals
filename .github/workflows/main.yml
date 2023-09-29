@@ -27,5 +27,7 @@ jobs:
       with: 
         node-version: "18.x"
         working-directory: ./client
+    - name: selenium setup
+      run: npm install selenium-webdriver
     - name : actual test
       run: node tests/calculator-test.js
