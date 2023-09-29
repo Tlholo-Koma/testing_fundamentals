@@ -39,11 +39,12 @@ public class UserControllerIntegrationTests {
                 .andReturn();
     }
     @Test
-    public void shouldAddUserForUser() throws JsonProcessingException, Exception {
+    public void shouldAddUserByEmail() throws JsonProcessingException, Exception {
 
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode requestBody = objectMapper.createObjectNode();
         requestBody.put("email", "example@email.com");
+        requestBody.put("name", "name");
 
 
         mvc.perform(post("/user")

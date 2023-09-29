@@ -40,7 +40,7 @@ public class UserService {
     @Transactional
     public void createUser(CreateUserRequest request) throws RuntimeException {
         try {
-            userRepository.insertUser(request.getEmail());
+            userRepository.insertUser(request.getEmail(), request.getName());
         } catch (Exception e) {
             throw new RuntimeException("Error setting user for ID: " + e.getMessage());
         }
