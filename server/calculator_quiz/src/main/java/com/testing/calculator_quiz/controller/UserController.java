@@ -20,6 +20,11 @@ public class UserController {
         return userService.getUserByUserId(userId);
     }
 
+    @GetMapping("/user")
+    public User getUserByEmail(@RequestBody CreateUserRequest request) {
+        return userService.getUserByEmail(request);
+    }
+
     @PostMapping("/user")
     public ResponseEntity<String> createUserByEmail(@RequestBody CreateUserRequest request) {
         try {

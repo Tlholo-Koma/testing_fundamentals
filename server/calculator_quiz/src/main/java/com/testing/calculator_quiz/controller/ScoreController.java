@@ -2,6 +2,7 @@ package com.testing.calculator_quiz.controller;
 
 import com.testing.calculator_quiz.entity.Score;
 import com.testing.calculator_quiz.service.ScoreService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +18,14 @@ public class ScoreController {
     }
 
     @GetMapping("/user/{userId}/score")
-    public List<Score> getScoreByUserId(@PathVariable Integer userId) {
-        return scoreService.getScoreByUserId(userId);
+    public ResponseEntity<List<Score>> getScoreByUserId(@PathVariable Integer userId) {
+        try {
+            List<Score> scores = scoreService.getScoreByUserId(userId);
+            return ResponseEntity.ok(scores);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
-
     @PostMapping("/user/{userId}/score")
     public ResponseEntity<String> setScoreByUserId(@PathVariable Integer userId, @RequestBody Map<String, Integer> requestBody) {
         Integer score = requestBody.get("score");
