@@ -1,0 +1,27 @@
+name: Javascript with Selenium
+on:
+
+  push:
+  
+    branches: [ main ]
+
+  pull_request:
+
+      branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: cmd
+
+    steps:
+
+    - name: Run calculator test
+
+      uses: actions/checkout@v2
+
+    - name: Selenium stuff
+      working-directory: ./client
+
+      run: node tests/calculator-test.js
