@@ -35,7 +35,7 @@ label {
 }
 #answers-section {
   display: grid;
-
+visibility:hidden;
   grid-template-columns: 1fr 1fr;
   row-gap: 4em;
   background-color: white;

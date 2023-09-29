@@ -51,6 +51,7 @@ async function clearTrivia() {
   answersSection.style.display = "none";
   questionLabel.textContent = "";
   scoreLabel.textContent = `You scored ${score}/10`;
+  navigationSection.style.display = "block";
 
   fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
     headers: {
@@ -71,7 +72,7 @@ async function clearTrivia() {
   // set score by sending it with userID
   addScoreToDB = await(apiPost(`http://localhost:8080/user/${dataUserId}/score`, score))
 
-  navigationSection.style.display = "block";
+
 }
 
 function handleSelectedAnswer(answerButton) {
@@ -86,7 +87,7 @@ function handleSelectedAnswer(answerButton) {
 
     removeQuestion();
 
-    timer.textContent = `${score}/10`;
+    timer.textContent = `${score}`;
   }
 }
 
@@ -131,7 +132,7 @@ async function nextTriviaQuestion() {
     currentQuestion = questions[randomIndex];
 
     questionLabel.textContent = currentQuestion.question;
-
+    answersSection.style.visibility = "visible";
     let allAnswers = [
       ...currentQuestion.incorrect_answers,
       currentQuestion.correct_answer,
