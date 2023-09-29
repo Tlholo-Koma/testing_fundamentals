@@ -27,6 +27,16 @@ public class UserService {
         return user;
     }
 
+    public User getUserByEmail(CreateUserRequest request) throws RuntimeException {
+        User user = userRepository.getUserByEmail(request.getEmail());
+
+        if (user == null) {
+            throw new RuntimeException("No user found for email: " + request.getEmail());
+        }
+
+        return user;
+    }
+
     @Transactional
     public void createUser(CreateUserRequest request) throws RuntimeException {
         try {

@@ -11,6 +11,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT t FROM USERS t WHERE t.userId = :userId")
     User getUser(int userId);
 
+    @Query("SELECT t FROM USERS t WHERE t.email = :email")
+    User getUserByEmail(String email);
+
     @Modifying
     @Query("INSERT INTO USERS (email) VALUES (:email)")
     void insertUser(@Param("email") String email);
