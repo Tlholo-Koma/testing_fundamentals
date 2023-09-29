@@ -11,17 +11,21 @@ on:
 
 jobs:
 
-  build:
+  test:
 
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: ./client
 
     steps:
 
     - name: Run calculator test
       uses: actions/checkout@v2
-    - name: Selenium stuff
+      
+    - name: setup stuff
       with: 
         node-version: "18.x"
         working-directory: ./client
-
-        run: node tests/calculator-test.js
+    - name : actual test
+      run: node tests/calculator-test.js
