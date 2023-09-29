@@ -13,14 +13,13 @@ jobs:
 
   build:
 
-    runs-on: cmd
+    runs-on: windows-latest
 
     steps:
 
     - name: Run calculator test
 
       uses: actions/checkout@v2
-
     - name: Selenium stuff
       working-directory: ./client
 
