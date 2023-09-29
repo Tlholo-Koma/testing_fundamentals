@@ -34,5 +34,14 @@ public class ScoreService {
             throw new RuntimeException("Error setting score for user with ID: " + userId, e);
         }
     }
+//    @Transactional
+//    public void setScoreByEmail(String email, int score) {
+//        try {
+//            scoreRepository.setScoreByEmail(email, score, new Date());
+//
+//        } catch (Exception e) {
+//            throw new RuntimeException("Error setting score for user with ID: " + email, e);
+//        }
+//    }
 
 }

@@ -16,4 +16,8 @@ public interface ScoreRepository extends JpaRepository<Score, Integer> {
     @Modifying
     @Query("INSERT INTO SCORE (userId, score, scoreDateTime) VALUES (:userId, :score, :scoreDateTime)")
     void setScore(@Param("userId") int userId, @Param("score") int score, @Param("scoreDateTime") Date scoreDateTime);
+
+//    @Modifying
+//    @Query("INSERT INTO SCORE (email, score, scoreDateTime) VALUES (:email, :score, :scoreDateTime)")
+//    void setScoreByEmail(@Param("email") String email, @Param("score") int score, @Param("scoreDateTime") Date scoreDateTime);
 }

@@ -9,6 +9,16 @@ async function apiGet(endpoint) {
 });
 }
 
+async function apiGetBody(endpoint, body) {
+    return await fetch(allaboard_url+ endpoint, {
+    method: "GET",
+    body: body,
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8'
+    }
+});
+}
+
 async function apiPost(endpoint, body) {
     return await fetch(allaboard_url+ endpoint, {
     method: "POST",

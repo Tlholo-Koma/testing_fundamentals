@@ -15,9 +15,8 @@ const calcButton = document.getElementById("calcutor");
 
 async function countdown() {
   countdownValue -= 1;
-  timer.style.background = `linear-gradient(white, white) content-box no-repeat, conic-gradient(rgb(0, 110, 255) ${
-    100 - countdownValue * 10
-  }%, 0, white) border-box`;
+  timer.style.background = `linear-gradient(white, white) content-box no-repeat, conic-gradient(rgb(0, 110, 255) ${100 - countdownValue * 10
+    }%, 0, white) border-box`;
 
   if (countdownValue >= 0) {
     countdownTimeout = setTimeout(countdown, 1000);
@@ -47,11 +46,31 @@ function removeQuestion() {
     }, delay);
   }
 }
-function clearTrivia() {
+async function clearTrivia() {
   clearTimeout(countdownTimeout);
   answersSection.style.display = "none";
   questionLabel.textContent = "";
   scoreLabel.textContent = `You scored ${score}/10`;
+
+  fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+    headers: {
+      "Authorization": `Bearer ${authInfo['access_token']}`
+    }
+  })
+  const userInfo = await userInfoResponse.json();
+  const userEmail = userInfo.email;
+
+  const userResponse = await apiGetBody('http://localhost:8080/user', { email: userEmail });
+  const userData = await userResponse.json();
+  const userId = userData.userId;
+
+  const dataUserId = JSON.stringify({
+    "userId": userId,
+  });
+
+  // set score by sending it with userID
+  addScoreToDB = await(apiPost(`http://localhost:8080/user/${dataUserId}/score`, score))
+
   navigationSection.style.display = "block";
 }
 
@@ -77,7 +96,7 @@ async function getTriviaQuestions() {
   answersSection.style.display = "grid";
   scoreLabel.textContent = "";
   navigationSection.style.display = "none";
-  const difficulty = ["medium","hard"]
+  const difficulty = ["medium", "hard"]
   try {
     const response = await fetch(
       `https://opentdb.com/api.php?amount=10&category=19&difficulty=${difficulty[Math.floor(Math.random() * difficulty.length)]}&type=multiple`,
@@ -124,7 +143,7 @@ async function nextTriviaQuestion() {
       answerButton.classList.add("answer-button");
       answerButton.textContent = allAnswers[i];
 
-      answerButton.addEventListener("click", ()=>handleSelectedAnswer(answerButton));
+      answerButton.addEventListener("click", () => handleSelectedAnswer(answerButton));
 
       answersSection.appendChild(answerButton);
     }

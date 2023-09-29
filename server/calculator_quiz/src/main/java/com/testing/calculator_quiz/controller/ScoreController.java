@@ -33,4 +33,11 @@ public class ScoreController {
          scoreService.setScoreByUserId(userId, score);
         return ResponseEntity.ok("Score added successfully!");
     }
+
+//    @PostMapping("/user/{email}/score")
+//    public ResponseEntity<String> setScoreByEmail(@PathVariable String email, @RequestBody Map<String, Integer> requestBody) {
+//        Integer score = requestBody.get("email");
+//        scoreService.setScoreByEmail(email, score);
+//        return ResponseEntity.ok("Score added successfully!");
+//    }
 }
