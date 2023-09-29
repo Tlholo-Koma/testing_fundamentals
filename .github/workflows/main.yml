@@ -18,9 +18,10 @@ jobs:
     steps:
 
     - name: Run calculator test
-
       uses: actions/checkout@v2
     - name: Selenium stuff
-      working-directory: ./client
+      with: 
+        node-version: "18.x"
+        working-directory: ./client
 
-      run: node tests/calculator-test.js
+        run: node tests/calculator-test.js
